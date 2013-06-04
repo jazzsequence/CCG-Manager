@@ -117,7 +117,7 @@ function ccg_man_card_metabox() {
 	echo '<p><label for="cost"><strong>' . __( 'Cost', 'ccg-manager' ) . '</strong></label><br />';
 	echo '<input size="5" type="text" name="cost" value="' . wp_filter_nohtml_kses(get_post_meta( $post->ID, 'cost', true )) . '" /></p>';
 
-	echo '<p><label for="creature-type"><strong>' . __( 'Creature Type', 'ccg-manager' ) . '</strong></label><br />';
+	echo '<p><label for="creature-type"><strong>' . __( 'Card Type', 'ccg-manager' ) . '</strong></label><br />';
 	echo '<input size="15" type="text" name="creature-type" value="' . wp_filter_nohtml_kses( get_post_meta( $post->ID, 'creature-type', true ) ) . '" /></p>';
 
 	echo '<p><label for="power"><strong>' . __( 'Power', 'ccg-manager' ) . '</strong></label><br />';
@@ -182,8 +182,11 @@ function ccg_man_columns( $columns ) {
 		'title' => __( 'Card', 'ccg-manager' ),
 		'ccg_series' => __( 'Series', 'ccg-manager' ),
 		'ccg_collection' => __( 'Collection', 'ccg-manager' ),
+		'creature-type' => __( 'Card Type', 'ccg-manager' ),
+		'cost' => __( 'Cost', 'ccg-manager' ),
 		'rarity' => __( 'Rarity', 'ccg-manager' )
 	);
+	return $columns;
 }
 add_filter( 'manage_edit-ccg_card_columns', 'ccg_man_columns' );
 
