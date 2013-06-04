@@ -201,7 +201,7 @@ function ccg_man_card_columns( $column, $post_id ) {
 				foreach ( $terms as $term ) {
 					$out[] = sprintf( '<a href="%s">%s</a>',
 					esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'ccg_series' => $term->slug ), 'edit.php' ) ),
-					esc_html( sanitize_term_field( 'name', $term->name, $term->$term_id, 'ccg_series', 'display' ) )
+					esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'ccg_series', 'display' ) )
 					);
 				}
 				echo join (', ', $out);
@@ -217,7 +217,7 @@ function ccg_man_card_columns( $column, $post_id ) {
 				foreach ( $terms as $term ) {
 					$out[] = sprintf( '<a href="%s">%s</a>',
 					esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'ccg_collection' => $term->slug ), 'edit.php' ) ),
-					esc_html( sanitize_term_field( 'name', $term->name, $term->$term_id, 'ccg_collection', 'display' ) )
+					esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'ccg_collection', 'display' ) )
 					);
 				}
 				echo join (', ', $out);
