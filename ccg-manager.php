@@ -158,13 +158,13 @@ function ccg_man_save_card( $post_id, $post ) {
 			return;
 		if( isset( $_POST[ $meta_key ] ) ) {
 			if ( $type == 'text' ) {
-				$value = wp_kses( $_POST[ $meta_key ] );
+				$value = wp_kses( $_POST[ $meta_key ], array() );
 			}
 			if ( $type == 'rarity' ) {
 				foreach ( ccg_man_rarity() as $rarity ) {
 					$r_value = $rarity['value'];
-					if ( $value == $r_value ) {
-						$value = wp_kses( $_POST[ $meta_key ] );
+					if ( $_POST[ $meta_key ] == $r_value ) {
+						$value = wp_kses( $_POST[ $meta_key ], array() );
 					}
 				}
 			}
