@@ -250,7 +250,16 @@ function ccg_man_card_columns( $column, $post_id ) {
 					$value = $r['value'];
 
 					if ( $rarity == $value ) {
-						echo wp_filter_nohtml_kses( $label );
+						$label == wp_filter_nohtml_kses( $label );
+						if ( $rarity == 'r' ) {
+							echo '<span style="color: purple; font-weight: bold;">' . $label . '</span>';
+						}
+						elseif ( $rarity == 'u' ) {
+							echo '<span style="color: gold; font-weight: bold;">' . $label . '</span>';
+						}
+						else {
+							echo '<span style="font-weight: bold;">' . $label . '</span>';
+						}
 					}
 				}
 			} else {
