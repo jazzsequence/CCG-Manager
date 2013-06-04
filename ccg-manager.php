@@ -225,6 +225,22 @@ function ccg_man_card_columns( $column, $post_id ) {
 				_e( 'No collections found', 'ccg-manager' );
 			}
 			break;
+		case 'creature-type' :
+			$type = get_post_meta( $post->ID, 'creature-type', true );
+
+			if ( $type ) {
+				$type = wp_filter_nohtml_kses( $type );
+				echo $type;
+			}
+			break;
+		case 'cost' :
+			$cost = get_post_meta( $post->ID, 'cost', true );
+
+			if ( $cost ) {
+				$cost = wp_filter_nohtml_kses( $cost );
+				echo $cost;
+			}
+			break;
 		case 'rarity' :
 			$rarity = get_post_meta( $post->ID, 'rarity', true );
 
@@ -243,7 +259,7 @@ function ccg_man_card_columns( $column, $post_id ) {
 			break;
 	}
 }
-add_action( 'manage_ccg_card_posts_custom_column', 'ccg_man_card_columns' );
+add_action( 'manage_ccg_card_posts_custom_column', 'ccg_man_card_columns', 10, 2 );
 
 function ccg_man_rarity() {
 	$rarity = array(
