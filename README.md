@@ -9,7 +9,7 @@ Requires at least: 2.9
 Tested up to: 3.6  
 Stable tag: 1.0  
 
-A WordPress plugin to manager your CCG collection
+A WordPress plugin to manage your CCG collection
 
 ###Description
 
