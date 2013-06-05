@@ -6,7 +6,7 @@ Author: Chris Reynolds
 Author URI: http://chrisreynolds.io
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Version: 0.1
+Version: 0.2
 */
 
 /*
