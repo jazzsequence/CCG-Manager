@@ -2,7 +2,7 @@
 
 CCG Manager
 ===========
-Author: @jazzs3quence  
+Author: [Chris Reynolds](https://github.com/jazzsequence)  
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG  
 Tags: CCG, collectable card game, magic the gathering, pokemon, trading card, card manager  
 Requires at least: 2.9  
