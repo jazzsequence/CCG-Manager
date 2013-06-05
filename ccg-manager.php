@@ -293,10 +293,10 @@ function ccg_man_admin_head_css() {
 	?>
 	<style type="text/css" media="screen">
 		#menu-posts-ccg_card .wp-menu-image {
-			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px -19px !important;
+			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px -17px !important;
 		}
 		#menu-posts-ccg_card:hover .wp-menu-image, #menu-posts-ccg_card.wp-has-current-submenu .wp-menu-image {
-			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px 5px !important;
+			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px 6px !important;
 		}
 	<?php
 		if ( $post_type == 'ccg_card' ) :
