@@ -287,3 +287,22 @@ function ccg_man_rarity() {
 	);
 	return $rarity;
 }
+
+function ccg_man_admin_head_css() {
+	global $post_type;
+	?>
+	<style type="text/css" media="screen">
+		#menu-posts-ccg_card .wp-menu-image {
+			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px -19px !important;
+		}
+		#menu-posts-ccg_card:hover .wp-menu-image, #menu-posts-ccg_card.wp-has-current-submenu .wp-menu-image {
+			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px 5px !important;
+		}
+	<?php
+		if ( $post_type == 'ccg_card' ) :
+			echo '#icon-edit {
+				background: url(' . plugins_url( 'images/card-icon-32.png', __FILE__ ) . ') no-repeat !important;
+			}';
+		endif;
+}
+add_action( 'admin_head', 'ccg_man_admin_head_css' );

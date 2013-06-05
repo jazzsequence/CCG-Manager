@@ -35,4 +35,3 @@ Each add-on extension will likely have some kind of bounty based on how long it 
 
 * create a shortcode to display a list of cards
 * filter post content to display the post meta information if the current post type is `ccg_card`
-* add icons to admin screen
