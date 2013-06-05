@@ -25,7 +25,7 @@ Using custom post types and taxonomies, you can store information about your car
 2. CCG Manager admin screen
 ![ccg manager admin](http://cl.ly/image/1b0M3g3b1m2M/Screenshot_6_4_13_10_54_PM.png)
 
-3. CCG Manager menu
+3. CCG Manager menu  
 ![ccg manager menu](http://cl.ly/image/28463H2z2U3g/Screenshot_6_4_13_10_55_PM.png)
 
 ###Future development
