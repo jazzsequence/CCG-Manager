@@ -17,6 +17,17 @@ CCG Manager is a way to store your collectable card game trading cards in WordPr
 
 Using custom post types and taxonomies, you can store information about your cards, sort them by series, and split them into collections. Collections could be based on whatever criteria you like -- some examples could be to split them by game, decks, etc.
 
+###Screenshots
+
+1. Add New Card
+![add new card](http://cl.ly/image/0X2P1y0b3n0Q/Add_New_Card_%E2%80%B9_Local_Test_Site_%E2%80%94_WordPress-2.png)
+
+2. CCG Manager admin screen
+![ccg manager admin](http://cl.ly/image/1b0M3g3b1m2M/Screenshot_6_4_13_10_54_PM.png)
+
+3. CCG Manager menu
+![ccg manager menu](http://cl.ly/image/28463H2z2U3g/Screenshot_6_4_13_10_55_PM.png)
+
 ###Future development
 
 This was mostly just a sideproject of mine, but it's based off of real software I used when I was collecting *Magic: the Gathering* cards actively. This plugin will always be free, which means I'm not making any money off of it, and therefore may or may not be inclined to add new features to it. However, given enough interest, there are a few directions this plugin could go like…
