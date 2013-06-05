@@ -42,6 +42,10 @@ I'm open to other suggestions for extensions as well from anyone who wants to us
 
 Each add-on extension will likely have some kind of bounty based on how long it would take to develop it. I'll try to throw together some kind of Kickstarter-like donation system, so people can donate toward a particular goal and if enough people donate (or pledge to donate), the add-on gets made.
 
+**How do I request an extension?**
+
+For now you can either open a ticket in the [GitHub issue tracker](https://github.com/jazzsequence/CCG-Manager/issues) or ping me [on Twitter](http://twitter.com/jazzs3quence).
+
 ###To Do
 
 * create a shortcode to display a list of cards
