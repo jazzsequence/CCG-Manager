@@ -50,5 +50,3 @@ For now you can either open a ticket in the [GitHub issue tracker](https://githu
 
 * create a shortcode to display a list of cards
 * filter post content to display the post meta information if the current post type is `ccg_card`
-* readme.txt for WordPress.org
-* finalize plugin header for WordPress.org
