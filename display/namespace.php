@@ -41,3 +41,12 @@ function render_meta_item( $meta_key ) {
 	<?php
 	return ob_get_clean();
 }
+
+
+function mana_symbol( $value ) {
+	return sprintf(
+		'<img src="%1$s" alt="%2$s" />',
+		sprintf( plugin_dir_url( dirname( __FILE__ ) ) . 'vendor/scryfall/manamoji-slack/emojis/mana-%s.png', $value ),
+		$value
+	);
+}
