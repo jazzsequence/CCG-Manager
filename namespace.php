@@ -130,14 +130,42 @@ function render_card_columns( $column, $post_id ) {
 				echo esc_html( $type );
 			}
 
-			break;
+/**
+ * Change the post type labels.
+ *
+ * Since extended cpts only changes the singular and plural names of the post type, we need to manually adjust the labels if we want them to be customized.
+ */
+function change_post_type_labels() {
+	global $wp_post_types;
 
-		case 'cost':
-			$cost = get_post_meta( $post->ID, 'cost', true );
-
-			if ( $cost ) {
-				echo esc_html( $cost );
-			}
+	$labels = &$wp_post_types['ccg_card']->labels;
+	$labels->name                     = esc_html__( 'CCG Manager', 'ccg-manager' );
+	$labels->singular_name            = esc_html__( 'Card', 'ccg-manager' );
+	$labels->add_new                  = esc_html__( 'Add New Card', 'ccg-manager' );
+	$labels->add_new_item             = esc_html__( 'Add New Card', 'ccg-manager' );
+	$labels->edit_item                = esc_html__( 'Edit Card', 'ccg-manager' );
+	$labels->new_item                 = esc_html__( 'New Card', 'ccg-manager' );
+	$labels->view                     = esc_html__( 'View Card', 'ccg-manager' );
+	$labels->view_item                = esc_html__( 'View Card', 'ccg-manager' );
+	$labels->view_items               = esc_html__( 'View Cards', 'ccg-manager' );
+	$labels->search_items             = esc_html__( 'Search Cards', 'ccg-manager' );
+	$labels->not_found                = esc_html__( 'No cards found', 'ccg-manager' );
+	$labels->not_found_in_trash       = esc_html__( 'No cards found in the trash', 'ccg-manager' );
+	$labels->all_items                = esc_html__( 'All cards', 'ccg-manager' );
+	$labels->archives                 = esc_html__( 'All cards', 'ccg-manager' );
+	$labels->insert_into_item         = esc_html__( 'Insert into card', 'ccg-manager' );
+	$labels->uploaded_to_this_item    = esc_html__( 'Uploaded to this card', 'ccg-manager' );
+	$labels->item_published           = esc_html__( 'Card published.', 'ccg-manager' );
+	$labels->item_published_privately = esc_html__( 'Card published privately.', 'ccg-manager' );
+	$labels->item_reverted_to_draft   = esc_html__( 'Card reverted to draft.', 'ccg-manager' );
+	$labels->item_scheduled           = esc_html__( 'Card scheduled.', 'ccg-manager' );
+	$labels->item_updated             = esc_html__( 'Card updated.', 'ccg-manager' );
+	$labels->menu_name                = esc_html__( 'CCG Manager', 'ccg-manager' );
+	$labels->name_admin_bar           = esc_html__( 'Card', 'ccg-manager' );
+	$labels->featured_image           = esc_html__( 'Card Image', 'ccg-manager' );
+	$labels->set_featured_image       = esc_html__( 'Add card image', 'ccg-manager' );
+	$labels->remove_featured_image    = esc_html__( 'Remove card image', 'ccg-manager' );
+}
 
 			break;
 
