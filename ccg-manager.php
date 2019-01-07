@@ -13,7 +13,7 @@
  */
 
 /*
-	Copyright (C) 2013 Chris Reynolds | hello@chrisreynolds.io
+	Copyright (C) 2019 Chris Reynolds | hello@chrisreynolds.io
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
