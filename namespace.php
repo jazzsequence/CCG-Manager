@@ -12,9 +12,9 @@ function bootstrap() {
 	// add_filter( 'manage_edit-ccg_card_columns', 'register_columns' );
 }
 
-function register_post_type() {
-	$labels = [
-		'name'               => __( 'CCG Manager', 'ccg-manager' ),
+/**
+ * Register the custom post type and taxonomies.
+ */
 		'singular_name'      => __( 'Card', 'ccg-manager' ),
 		'add_new'            => __( 'Add New Card', 'ccg-manager' ),
 		'add_new_item'       => __( 'Add New Card', 'ccg-manager' ),
