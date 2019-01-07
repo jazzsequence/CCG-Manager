@@ -14,7 +14,6 @@ namespace CCGManager;
 function bootstrap() {
 	add_action( 'init', __NAMESPACE__ . '\\register_post_type_and_taxonomies' );
 	add_action( 'init', __NAMESPACE__ . '\\change_post_type_labels' );
-	add_action( 'admin_menu', __NAMESPACE__ . '\\change_menu_labels' );
 	add_filter( 'dashboard_glance_items', __NAMESPACE__ . '\\change_dashboard_glance_label' );
 }
 
@@ -78,30 +77,6 @@ function register_post_type_and_taxonomies() {
 			'slug'          => 'series',
 		]
 	);
-}
-
-/**
- * Change the menu labels.
- *
- * Since extended cpts only changes the singular and plural names of the post type, we need to manually edit the $menu and $submenu globals to override the defaults.
- */
-function change_menu_labels() {
-	global $menu, $submenu;
-
-	$pos = false;
-
-	foreach ( $menu as $index => $menu_list ) {
-		if ( false === $pos ) {
-			if ( 'Ccg Cards' === $menu_list[0] ) {
-				$pos = $index;
-				break;
-			}
-		}
-	}
-
-	$menu[ $pos ][0] = esc_html__( 'CCG Manager', 'ccg-manager' );
-	$submenu['edit.php?post_type=ccg_card'][5][0] = esc_html__( 'Cards', 'ccg-manager' );
-	$submenu['edit.php?post_type=ccg_card'][10][0] = esc_html__( 'Add Card', 'ccg-manager' );
 }
 
 /**
