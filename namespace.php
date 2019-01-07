@@ -6,8 +6,8 @@
 namespace CCGManager;
 
 function bootstrap() {
-	add_action( 'init', __NAMESPACE__ . '\\register_post_type' );
-	add_action( 'init', __NAMESPACE__ . '\\register_taxonomies' );
+	add_action( 'init', __NAMESPACE__ . '\\register_post_type_and_taxonomies' );
+	add_action( 'init', __NAMESPACE__ . '\\change_post_type_labels' );
 	// add_action( 'manage_ccg_card_posts_custom_column', __NAMESPACE__ . '\\render_card_columns', 10, 2 );
 	// add_filter( 'manage_edit-ccg_card_columns', 'register_columns' );
 }
@@ -15,18 +15,7 @@ function bootstrap() {
 /**
  * Register the custom post type and taxonomies.
  */
-		'singular_name'      => __( 'Card', 'ccg-manager' ),
-		'add_new'            => __( 'Add New Card', 'ccg-manager' ),
-		'add_new_item'       => __( 'Add New Card', 'ccg-manager' ),
-		'edit_item'          => __( 'Edit Card', 'ccg-manager' ),
-		'new_item'           => __( 'New Card', 'ccg-manager' ),
-		'view'               => __( 'View Card', 'ccg-manager' ),
-		'view_item'          => __( 'View Card', 'ccg-manager' ),
-		'search_items'       => __( 'Search Cards', 'ccg-manager' ),
-		'not_found'          => __( 'No cards found', 'ccg-manager' ),
-		'not_found_in_trash' => __( 'No cards found in the trash', 'ccg-manager' ),
-	];
-
+function register_post_type_and_taxonomies() {
 	register_extended_post_type( 'ccg_card', [
 		'public'   => true,
 		'rewrite'  => [
@@ -63,34 +52,26 @@ function bootstrap() {
 			'plural'   => __( 'Cards', 'ccg-manager' ),
 		],
 	] );
-}
 
-function register_taxonomies() {
-	register_taxonomy( 'ccg_collection', 'ccg_card', [
-		'hierarchical' => true,
-		'labels'       => [
-			'name'          => __( 'Collections', 'ccg-manager' ),
-			'singular_name' => __( 'Collection', 'ccg-manager' ),
-			'edit_item'     => __( 'Edit Collection', 'ccg-manager' ),
-			'update_item'   => __( 'Update Collection', 'ccg-manager' ),
-			'add_new_item'  => __( 'Add New Collection', 'ccg-manager' ),
-		],
-		'query_var'    => 'ccg_collection',
-		'rewrite'      => [ 'slug' => 'collection' ],
-	] );
+	register_extended_taxonomy( 'ccg_collection', 'ccg_card',
+		[
+			'dashboard_glance' => true,
+		], [
+			'singular'      => __( 'Collection', 'ccg-manager' ),
+			'plural'        => __( 'Collections', 'ccg-manager' ),
+			'slug'          => 'collection',
+		]
+	);
 
-	register_taxonomy('ccg_series', 'ccg_card', [
-		'hierarchical' => true,
-		'labels'       => [
-			'name'          => __( 'Series', 'ccg-manager' ),
-			'singular_name' => __( 'Series', 'ccg-manager' ),
-			'edit_item'     => __( 'Edit Series', 'ccg-manager' ),
-			'update_item'   => __( 'Update Series', 'ccg-manager' ),
-			'add_new_item'  => __( 'Add New Series', 'ccg-manager' ),
-		],
-		'query_var'    => 'ccg_series',
-		'rewrite'      => [ 'slug' => 'series' ],
-	] );
+	register_extended_taxonomy( 'ccg_series', 'ccg_card',
+		[
+			'dashboard_glance' => true,
+		], [
+			'singular'      => __( 'Series', 'ccg_manager' ),
+			'plural'        => __( 'Series', 'ccg_manager' ),
+			'slug'          => 'series',
+		]
+	);
 }
 
 
