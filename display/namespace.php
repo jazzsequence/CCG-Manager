@@ -12,15 +12,28 @@ namespace CCGManager\Display;
 
 use CCGManager as Main;
 
+/**
+ * Kick off all the things.
+ */
 function bootstrap() {
 	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_css' );
 	add_filter( 'the_content', __NAMESPACE__ . '\\render_meta', 30 );
 }
 
+/**
+ * Enqueue front end styles.
+ */
 function enqueue_css() {
 	wp_enqueue_style( 'ccgman-front', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/main.css' );
 }
 
+
+/**
+ * Render the card meta data and taxonomies.
+ *
+ * @param  string $content The original post content.
+ * @return string          The filtered post content.
+ */
 function render_meta( $content ) {
 	if ( is_singular( 'ccg_card' ) ) {
 		foreach ( [ 'cost', 'rarity', 'creature-type', 'power' ] as $meta ) {
@@ -31,6 +44,12 @@ function render_meta( $content ) {
 	return $content;
 }
 
+/**
+ * Render an individual piece of card meta.
+ *
+ * @param  string $meta_key The meta key to display.
+ * @return string           The rendered HTML for that meta data.
+ */
 function render_meta_item( $meta_key ) {
 	$value = get_post_meta( get_the_ID(), $meta_key, true );
 
@@ -51,6 +70,12 @@ function render_meta_item( $meta_key ) {
 	return ob_get_clean();
 }
 
+/**
+ * Take the original cost of an item and change it to mana symbols.
+ *
+ * @param  string $value The meta value for cost of a card.
+ * @return string        The converted output.
+ */
 function transform_cost( $value ) {
 	$converted_value = '';
 	preg_match_all( '/{([^}]*)}/', $value, $matches );
@@ -63,12 +88,24 @@ function transform_cost( $value ) {
 	return $converted_value;
 }
 
+/**
+ * Take the original rarity value and change it to a friendlier display name.
+ *
+ * @param  string $value The original rarity value of a card.
+ * @return string        The converted output.
+ */
 function transform_rarity( $value ) {
 	$rarities = Main\rarity();
 
 	return $rarities[ $value ];
 }
 
+/**
+ * Return the mana symbol image for a given mana cost.
+ *
+ * @param  string $value The mana value.
+ * @return string        The converted output.
+ */
 function mana_symbol( $value ) {
 	return sprintf(
 		'<img src="%1$s" alt="%2$s" />',
