@@ -39,7 +39,7 @@ function add_cmb2_box() {
 		'name'       => __( 'Cost', 'ccg-manager' ),
 		'id'         => 'cost',
 		'type'       => 'text_small',
-		'desc'       => __( 'Casting cost of card. E.G. in Magic: the Gathering an item costing 2 black and 2 colorless would be listed as <code>BB2</code>.', 'ccg-manager' ),
+		'desc'       => __( 'Casting cost of card in {x} format, e.g. in Magic: the Gathering an item costing 2 black and 2 colorless would be listed as <code>{2}{B}{B}</code>.', 'ccg-manager' ),
 	] );
 
 	$cmb->add_field( [
