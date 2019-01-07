@@ -156,21 +156,23 @@ function change_dashboard_glance_label( $elements ) {
 	return $elements;
 }
 
+/**
+ * Return a filterable array of card rarities.
+ *
+ * @return array Array of rarities.
+ */
 function rarity() {
-	$rarity = [
-		'common' => [
-			'label' => __( 'Common', 'ccg-manager' ),
-			'value' => 'c',
-		],
-		'uncommon' => [
-			'label' => __( 'Uncommon', 'ccg-manager' ),
-			'value' => 'u',
-		],
-		'rare' => [
-			'label' => __( 'Rare', 'ccg-manager' ),
-			'value' => 'r',
-		],
-	];
+	/**
+	 * Allow rarity to be filtered for different games.
+	 *
+	 * @var array
+	 */
+	$rarity = apply_filters( 'ccg_man_filter_rarity', [
+		'c' => __( 'Common', 'ccg-manager' ),
+		'u' => __( 'Uncommon', 'ccg-manager' ),
+		'r' => __( 'Rare', 'ccg-manager' ),
+		'm' => __( 'Mythic Rare', 'ccg-manager' ),
+	] );
 
 	return $rarity;
 }
