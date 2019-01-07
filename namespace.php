@@ -12,9 +12,17 @@ namespace CCGManager;
  * Kick off all the things.
  */
 function bootstrap() {
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_styles' );
 	add_action( 'init', __NAMESPACE__ . '\\register_post_type_and_taxonomies' );
 	add_action( 'init', __NAMESPACE__ . '\\change_post_type_labels' );
 	add_filter( 'dashboard_glance_items', __NAMESPACE__ . '\\change_dashboard_glance_label' );
+}
+
+/**
+ * Enqueue the admin styles.
+ */
+function enqueue_styles() {
+	wp_enqueue_style( 'ccgman', plugin_dir_url( __FILE__ ) . 'assets/css/admin.css' );
 }
 
 /**
