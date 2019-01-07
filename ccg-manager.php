@@ -38,31 +38,3 @@ require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\bootstrap' );
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\Meta\\bootstrap' );
-
-
-
-
-
-
-
-
-
-// TODO: do this the right way in register_post_type.
-function ccg_man_admin_head_css() {
-	global $post_type;
-	?>
-	<style type="text/css" media="screen">
-		#menu-posts-ccg_card .wp-menu-image {
-			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px -17px !important;
-		}
-		#menu-posts-ccg_card:hover .wp-menu-image, #menu-posts-ccg_card.wp-has-current-submenu .wp-menu-image {
-			background: url(<?php echo plugins_url( 'images/card-mini.png', __FILE__ ); ?>) no-repeat 6px 6px !important;
-		}
-	<?php
-		if ( $post_type == 'ccg_card' ) :
-			echo '#icon-edit {
-				background: url(' . plugins_url( 'images/card-icon-32.png', __FILE__ ) . ') no-repeat !important;
-			}';
-		endif;
-}
-add_action( 'admin_head', 'ccg_man_admin_head_css' );
