@@ -33,6 +33,15 @@ function render_meta( $content ) {
 
 function render_meta_item( $meta_key ) {
 	$value = get_post_meta( get_the_ID(), $meta_key, true );
+
+	if ( 'cost' === $meta_key ) {
+		$value = transform_cost( $value );
+	}
+
+	if ( 'rarity' === $meta_key ) {
+		$value = transform_rarity( $value );
+	}
+
 	ob_start();
 	?>
 	<div <?php echo sprintf( 'class="ccgman-%1$s" id="ccgman-card-%2$s-%1$s"', $meta_key, sanitize_title( $value ) ); // WPCS: XSS ok, sanitized on output. ?>>
@@ -42,6 +51,23 @@ function render_meta_item( $meta_key ) {
 	return ob_get_clean();
 }
 
+function transform_cost( $value ) {
+	$converted_value = '';
+	preg_match_all( '/{([^}]*)}/', $value, $matches );
+	$cost = $matches[1];
+
+	foreach ( $cost as $mana_symbol ) {
+		$converted_value .= mana_symbol( $mana_symbol );
+	}
+
+	return $converted_value;
+}
+
+function transform_rarity( $value ) {
+	$rarities = Main\rarity();
+
+	return $rarities[ $value ];
+}
 
 function mana_symbol( $value ) {
 	return sprintf(
