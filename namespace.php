@@ -5,11 +5,14 @@
 
 namespace CCGManager;
 
+/**
+ * Kick off all the things.
+ */
 function bootstrap() {
 	add_action( 'init', __NAMESPACE__ . '\\register_post_type_and_taxonomies' );
 	add_action( 'init', __NAMESPACE__ . '\\change_post_type_labels' );
-	// add_action( 'manage_ccg_card_posts_custom_column', __NAMESPACE__ . '\\render_card_columns', 10, 2 );
-	// add_filter( 'manage_edit-ccg_card_columns', 'register_columns' );
+	add_action( 'admin_menu', __NAMESPACE__ . '\\change_menu_labels' );
+	add_filter( 'dashboard_glance_items', __NAMESPACE__ . '\\change_dashboard_glance_label' );
 }
 
 /**
@@ -135,35 +138,22 @@ function change_post_type_labels() {
 	$labels->remove_featured_image    = esc_html__( 'Remove card image', 'ccg-manager' );
 }
 
-			break;
-
-		case 'rarity':
-			$rarity = get_post_meta( $post->ID, 'rarity', true );
-
-			if ( $rarity ) {
-				foreach ( rarity() as $r ) {
-					$label = $r['label'];
-					$value = $r['value'];
-
-					if ( $rarity === $value ) {
-						$label = esc_html( $label );
-						if ( 'r' === $rarity ) {
-							echo wp_kses_post( '<span style="color: purple; font-weight: bold;">' . $label . '</span>' );
-						} elseif ( 'u' === $rarity ) {
-							echo wp_kses_post( '<span style="color: gold; font-weight: bold;">' . $label . '</span>' );
-						} else {
-							echo wp_kses_post( '<span style="font-weight: bold;">' . $label . '</span>' );
-						}
-					}
-				}
-			} else {
-				esc_html_e( 'No rarity set', 'ccg-manager' );
-			}
-			break;
-
-		default:
-			break;
+/**
+ * Change dashboard glance label
+ *
+ * This overrides the dashboard glance name for the Cards post type since it defaults to CCG Manager because we overrode it earlier.
+ *
+ * @param  array $elements An array of elements.
+ * @return array           The filtered array of elements.
+ */
+function change_dashboard_glance_label( $elements ) {
+	foreach ( $elements as $pos => $element ) {
+		if ( 0 !== stripos( $element, 'CCG Manager' ) ) {
+			$elements[ $pos ] = str_replace( 'CCG Manager', __( 'Cards', 'ccg-manager' ), $element );
+		}
 	}
+
+	return $elements;
 }
 
 function rarity() {
