@@ -10,6 +10,17 @@
 
 namespace CCGManager\Display;
 
+use CCGManager as Main;
+
+function bootstrap() {
+	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_css' );
+	add_filter( 'the_content', __NAMESPACE__ . '\\render_meta', 30 );
+}
+
+function enqueue_css() {
+	wp_enqueue_style( 'ccgman-front', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/main.css' );
+}
+
 function bootstrap() {
 	add_filter( 'the_content', __NAMESPACE__ . '\\render_meta', 30 );
 }

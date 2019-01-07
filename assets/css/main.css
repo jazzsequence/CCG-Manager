@@ -1,0 +1,23 @@
+.ccgman-rarity {
+	font-weight: 700;
+}
+
+#ccgman-card-common-rarity {
+	color: black;
+}
+
+#ccgman-card-uncommon-rarity {
+	color: silver;
+}
+
+#ccgman-card-rare-rarity {
+	color: gold;
+}
+
+#ccgman-card-mythic-rare-rarity {
+	color: chocolate;
+}
+
+.ccgman-cost img {
+	height: 1.5em;
+}
