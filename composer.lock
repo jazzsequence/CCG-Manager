@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b95a1d58f36c8ba11de8c33890f6e977",
+    "content-hash": "5e3bcc84502b855e7eb72c2f79a82740",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -104,6 +104,16 @@
             "description": "A library which provides extended functionality to WordPress custom post types and taxonomies.",
             "homepage": "https://github.com/johnbillion/extended-cpts/",
             "time": "2018-12-08T15:16:49+00:00"
+        },
+        {
+            "name": "scryfall/manamoji-slack",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scryfall/manamoji-slack.git",
+                "reference": "origin/master"
+            },
+            "type": "library"
         }
     ],
     "packages-dev": [],

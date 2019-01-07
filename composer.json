@@ -1,6 +1,21 @@
 {
+	"repositories": {
+		"manamoji-slack": {
+			"type": "package",
+			"package": {
+				"name": "scryfall/manamoji-slack",
+				"version": "1.0",
+				"source": {
+					"url": "https://github.com/scryfall/manamoji-slack.git",
+					"type": "git",
+					"reference": "origin/master"
+				}
+			}
+		}
+	},
     "require": {
         "cmb2/cmb2": "^2.5",
-        "johnbillion/extended-cpts": "^4.2"
+        "johnbillion/extended-cpts": "^4.2",
+        "scryfall/manamoji-slack": "1.0"
     }
 }

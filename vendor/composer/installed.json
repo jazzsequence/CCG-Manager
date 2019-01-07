@@ -101,5 +101,17 @@
         ],
         "description": "A library which provides extended functionality to WordPress custom post types and taxonomies.",
         "homepage": "https://github.com/johnbillion/extended-cpts/"
+    },
+    {
+        "name": "scryfall/manamoji-slack",
+        "version": "1.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/scryfall/manamoji-slack.git",
+            "reference": "origin/master"
+        },
+        "type": "library",
+        "installation-source": "source"
     }
 ]
