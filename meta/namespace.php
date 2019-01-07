@@ -3,16 +3,23 @@
  * CCG Manager Meta
  *
  * @package CCGManager\Meta.
+ * @author  Chris Reynolds <me@chrisreynolds.io>
  */
 
 namespace CCGManager\Meta;
 
 use CCGManager as Main;
 
+/**
+ * Kick off all the things.
+ */
 function bootstrap() {
 	add_action( 'cmb2_init', __NAMESPACE__ . '\\add_cmb2_box' );
 }
 
+/**
+ * Add the CMB2 metabox.
+ */
 function add_cmb2_box() {
 	$cmb = new_cmb2_box( [
 		'id'           => 'ccg_man_metabox',
