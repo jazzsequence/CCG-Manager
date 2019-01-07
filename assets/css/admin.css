@@ -9,7 +9,8 @@
 	filter: grayscale(100%);
 }
 
-#adminmenu a.menu-top.menu-icon-ccg_card:hover img {
+#adminmenu a.menu-top.menu-icon-ccg_card:hover img,
+#adminmenu a.wp-has-current-submenu.menu-icon-ccg_card img {
 	-webkit-filter: grayscale(0%);
 	filter: grayscale(0%);
 }
