@@ -33,6 +33,7 @@ function bootstrap() {
 			'slug'       => 'card',
 			'with_front' => 'false',
 		],
+		'menu_icon' => plugins_url( basename( dirname( __FILE__ ) ) ) . '/assets/images/card-mini.png',
 		'supports' => [ 'title', 'editor', 'revisions', 'thumbnail' ],
 		'admin_cols' => [
 			'title' => [
