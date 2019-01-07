@@ -21,10 +21,6 @@ function enqueue_css() {
 	wp_enqueue_style( 'ccgman-front', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/main.css' );
 }
 
-function bootstrap() {
-	add_filter( 'the_content', __NAMESPACE__ . '\\render_meta', 30 );
-}
-
 function render_meta( $content ) {
 	if ( is_singular( 'ccg_card' ) ) {
 		foreach ( [ 'cost', 'rarity', 'creature-type', 'power' ] as $meta ) {
