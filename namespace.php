@@ -1,6 +1,9 @@
 <?php
 /**
  * Main CCG Manager Namespace
+ *
+ * @package CCGManager
+ * @author  Chris Reynolds <me@chrisreynolds.io>
  */
 
 namespace CCGManager;
