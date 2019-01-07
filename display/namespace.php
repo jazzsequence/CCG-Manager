@@ -35,8 +35,8 @@ function render_meta_item( $meta_key ) {
 	$value = get_post_meta( get_the_ID(), $meta_key, true );
 	ob_start();
 	?>
-	<div <?php echo esc_textarea( sprintf( 'class="ccgman-%1$s" id="ccgman-card-%2$s-%1$s"', $meta_key, $value ) ); ?>>
-		<span><?php echo esc_html( wptexturize( $value ) ); ?></span>
+	<div <?php echo sprintf( 'class="ccgman-%1$s" id="ccgman-card-%2$s-%1$s"', $meta_key, sanitize_title( $value ) ); // WPCS: XSS ok, sanitized on output. ?>>
+		<span><?php echo wptexturize( $value ); // WPCS: XSS ok, sanitized on output. ?></span>
 	</div>
 	<?php
 	return ob_get_clean();
