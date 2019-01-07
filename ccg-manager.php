@@ -33,8 +33,10 @@ namespace CCGManager;
 
 require_once __DIR__ . '/namespace.php';
 require_once __DIR__ . '/meta/namespace.php';
+require_once __DIR__ . '/display/namespace.php';
 require_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
 require_once __DIR__ . '/vendor/johnbillion/extended-cpts/extended-cpts.php';
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\bootstrap' );
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\Meta\\bootstrap' );
+add_action( 'plugins_loaded', __NAMESPACE__ . '\\Display\\bootstrap' );
