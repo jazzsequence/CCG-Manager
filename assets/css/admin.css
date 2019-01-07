@@ -1,0 +1,15 @@
+#adminmenu .menu-icon-ccg_card div.wp-menu-image {
+	height: 32px;
+	overflow: hidden;
+}
+
+#adminmenu a.menu-icon-ccg_card img {
+	opacity: 1.0;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+#adminmenu a.menu-top.menu-icon-ccg_card:hover img {
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
