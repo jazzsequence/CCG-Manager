@@ -74,61 +74,29 @@ function register_post_type_and_taxonomies() {
 	);
 }
 
+/**
+ * Change the menu labels.
+ *
+ * Since extended cpts only changes the singular and plural names of the post type, we need to manually edit the $menu and $submenu globals to override the defaults.
+ */
+function change_menu_labels() {
+	global $menu, $submenu;
 
+	$pos = false;
 
-
-function render_card_columns( $column, $post_id ) {
-	global $post;
-
-	switch ( $column ) {
-		case 'ccg_series':
-			$terms = get_the_terms( $post_id, 'ccg_series' );
-
-			if ( ! empty( $terms ) ) {
-				$out = [];
-				foreach ( $terms as $term ) {
-					$out[] = sprintf(
-						'<a href="%s">%s</a>',
-						esc_url( add_query_arg( [
-							'post_type'  => $post->post_type,
-							'ccg_series' => $term->slug,
-						], 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'ccg_series', 'display' ) )
-					);
-				}
-				echo join( ', ', $out ); // XSS ok, already escaped.
-			} else {
-				esc_html_e( 'No series found', 'ccg-manager' );
+	foreach ( $menu as $index => $menu_list ) {
+		if ( false === $pos ) {
+			if ( 'Ccg Cards' === $menu_list[0] ) {
+				$pos = $index;
+				break;
 			}
-			break;
+		}
+	}
 
-		case 'ccg_collection':
-			$terms = get_the_terms( $post_id, 'ccg_collection' );
-
-			if ( ! empty( $terms ) ) {
-				$out = [];
-				foreach ( $terms as $term ) {
-					$out[] = sprintf(
-						'<a href="%s">%s</a>',
-						esc_url( add_query_arg( [
-							'post_type'      => $post->post_type,
-							'ccg_collection' => $term->slug,
-						], 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'ccg_collection', 'display' ) )
-					);
-				}
-				echo join( ', ', $out ); // XSS ok, already sanitized.
-			} else {
-				esc_html_e( 'No collections found', 'ccg-manager' );
-			}
-			break;
-
-		case 'creature-type':
-			$type = get_post_meta( $post->ID, 'creature-type', true );
-
-			if ( $type ) {
-				echo esc_html( $type );
-			}
+	$menu[ $pos ][0] = esc_html__( 'CCG Manager', 'ccg-manager' );
+	$submenu['edit.php?post_type=ccg_card'][5][0] = esc_html__( 'Cards', 'ccg-manager' );
+	$submenu['edit.php?post_type=ccg_card'][10][0] = esc_html__( 'Add Card', 'ccg-manager' );
+}
 
 /**
  * Change the post type labels.
