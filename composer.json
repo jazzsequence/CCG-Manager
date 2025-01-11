@@ -1,0 +1,14 @@
+{
+    "name": "jazzsequence/ccg-manager",
+    "description": "A WordPress plugin to manage your CCG collection",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Chris Reynolds",
+            "email": "chris@jazzsequence.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
