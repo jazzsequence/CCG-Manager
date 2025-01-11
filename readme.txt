@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: CCG, collectable card game, magic the gathering, p
 Requires at least: 2.9
 Tested up to: 3.6
-Stable tag: 0.1
+Stable tag: 0.2.1
 
 A WordPress plugin to manage your CCG collection
 

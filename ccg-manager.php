@@ -7,7 +7,7 @@ Author URI: http://chrisreynolds.io
 Plugin URI: http://museumthemes.com
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Version: 0.2
+Version: 0.2.1
 */
 
 /*
