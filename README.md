@@ -11,13 +11,38 @@ Stable tag: 0.2.1
 
 A WordPress plugin to manage your CCG collection
 
-###Description
+### Description
 
 CCG Manager is a way to store your collectable card game trading cards in WordPress. It's based off of desktop apps like Magic Suitcase which store your card collections and allow you to search through your inventory. 
 
 Using custom post types and taxonomies, you can store information about your cards, sort them by series, and split them into collections. Collections could be based on whatever criteria you like -- some examples could be to split them by game, decks, etc.
 
-###Screenshots
+### Installation
+
+#### Via Composer
+
+CCG Manager can be installed on Composer-based WordPress sites by using the following command:
+
+```bash
+composer require jazzsequence/CCG-Manager
+```
+
+#### Via Git Updater
+
+CCG Manager supports [Andy Fragen's Git Updater](https://git-updater.com) method of managing plugins. 
+
+1. Download and install [Git Updater](https://git-updater.com/git-updater/) on your WordPress site.
+1. From the Git Updater admin pages, navigate to **Install Plugin** and use the following values:
+
+**Plugin URI:** `jazzsequence/CCG-Manager`  
+**Repository Branch:** `main`  
+**Remote Repository Host:** `GitHub`  
+**GitHub Access Token:** (optional, leave blank)
+
+#### Via WordPress Plugin Repository
+The plugin can be installed via the WordPress plugin repository, however, the version in the repository may not be the most current version. Use the standard methods of searching for and installing the plugin from the Plugins page in your WordPress dashboard.
+
+### Screenshots
 
 1. Add New Card
 ![add new card](http://cl.ly/image/0X2P1y0b3n0Q/Add_New_Card_%E2%80%B9_Local_Test_Site_%E2%80%94_WordPress-2.png)
@@ -28,11 +53,11 @@ Using custom post types and taxonomies, you can store information about your car
 3. CCG Manager menu  
 ![ccg manager menu](http://cl.ly/image/28463H2z2U3g/Screenshot_6_4_13_10_55_PM.png)
 
-###Future development
+### Future development
 
 This was mostly just a sideproject of mine, but it's based off of real software I used when I was collecting *Magic: the Gathering* cards actively. This plugin will always be free, which means I'm not making any money off of it, and therefore may or may not be inclined to add new features to it. However, given enough interest, there are a few directions this plugin could go like…
 
-####Premium Extensions
+#### Premium Extensions
 
 Game-based extensions that add new features (like additional meta-fields for game-specific information not included in the basic plugin) and game-centric icons that replace the generic text that displays for casting/summoning cost or series.
 
@@ -46,7 +71,7 @@ Each add-on extension will likely have some kind of bounty based on how long it 
 
 For now you can either open a ticket in the [GitHub issue tracker](https://github.com/jazzsequence/CCG-Manager/issues) or ping me [on Twitter](http://twitter.com/jazzs3quence).
 
-###To Do
+### To Do
 
 * create a shortcode to display a list of cards
 * filter post content to display the post meta information if the current post type is `ccg_card`
